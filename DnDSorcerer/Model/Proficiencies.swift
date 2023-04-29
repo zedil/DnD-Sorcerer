@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Proficiensies: Codable {
+struct ProficiensiesSub: Codable {
     let index: String
     let type: String
     let name: String

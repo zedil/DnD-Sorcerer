@@ -22,6 +22,8 @@
 		A09D6B7729FD638700949EEC /* Sorcerer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B7629FD638700949EEC /* Sorcerer.swift */; };
 		A09D6B7929FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B7829FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift */; };
 		A09D6B7D29FD9BA900949EEC /* Proficiencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */; };
+		A09D6B8329FDB00500949EEC /* ProficiensiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */; };
+		A09D6B8529FDBD3D00949EEC /* ClassesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		A09D6B7629FD638700949EEC /* Sorcerer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorcerer.swift; sourceTree = "<group>"; };
 		A09D6B7829FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiensiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiencies.swift; sourceTree = "<group>"; };
+		A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiensiesViewController.swift; sourceTree = "<group>"; };
+		A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A09D6B7829FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift */,
+				A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 				A09D6B6829FD542600949EEC /* EquipmentViewController.swift */,
 				A09D6B6A29FD543800949EEC /* SubClassViewController.swift */,
 				A09D6B6C29FD544700949EEC /* ThrowsViewController.swift */,
+				A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +204,7 @@
 			files = (
 				A09D6B5529FD52E700949EEC /* ViewController.swift in Sources */,
 				A09D6B6529FD536A00949EEC /* MainTabBarViewController.swift in Sources */,
+				A09D6B8529FDBD3D00949EEC /* ClassesCollectionViewCell.swift in Sources */,
 				A09D6B7729FD638700949EEC /* Sorcerer.swift in Sources */,
 				A09D6B6729FD541600949EEC /* SpellsViewController.swift in Sources */,
 				A09D6B7529FD62FA00949EEC /* APICaller.swift in Sources */,
@@ -207,6 +214,7 @@
 				A09D6B6F29FD54C000949EEC /* HomeViewController.swift in Sources */,
 				A09D6B5129FD52E700949EEC /* AppDelegate.swift in Sources */,
 				A09D6B5329FD52E700949EEC /* SceneDelegate.swift in Sources */,
+				A09D6B8329FDB00500949EEC /* ProficiensiesViewController.swift in Sources */,
 				A09D6B6929FD542600949EEC /* EquipmentViewController.swift in Sources */,
 				A09D6B7D29FD9BA900949EEC /* Proficiencies.swift in Sources */,
 			);

@@ -19,6 +19,12 @@ class ProficiensiesCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private let proficiencyImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "spell")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +43,7 @@ class ProficiensiesCollectionViewCell: UICollectionViewCell {
     
     private func addSubViews() {
         contentView.addSubview(proficiencyName)
+        contentView.addSubview(proficiencyImage)
     }
     
     private func configureContents() {
@@ -46,9 +53,17 @@ class ProficiensiesCollectionViewCell: UICollectionViewCell {
     
     private func applyConstraints() {
         let proficiencyNameConst = [
-            proficiencyName.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            proficiencyName.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 30),
             proficiencyName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ]
         NSLayoutConstraint.activate(proficiencyNameConst)
+        
+        let proficiencyImageConst = [
+            proficiencyImage.topAnchor.constraint(equalTo: proficiencyName.bottomAnchor, constant: 20),
+            proficiencyImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            proficiencyImage.widthAnchor.constraint(equalToConstant: 50),
+            proficiencyImage.heightAnchor.constraint(equalToConstant: 50)
+        ]
+        NSLayoutConstraint.activate(proficiencyImageConst)
     }
 }

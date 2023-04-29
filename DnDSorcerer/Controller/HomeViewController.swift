@@ -51,8 +51,6 @@ class HomeViewController: UIViewController {
         collection.register(ProficiensiesCollectionViewCell.self, forCellWithReuseIdentifier: ProficiensiesCollectionViewCell.identifier)
         return collection
     }()
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +101,6 @@ class HomeViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(sorcererImgViewConst)
         
-        
         let sorcererProficienciesCollectionViewConst = [
             sorcererProficienciesCollectionView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 50),
             sorcererProficienciesCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -134,7 +131,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         return proficiensies.count
     }
     
@@ -149,11 +145,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItemName = proficiensies[indexPath.row].index
+        
+        let vc = ProficiensiesViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.itemName = selectedItemName
+        self.present(vc, animated: false)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: 150)
     }
-
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20

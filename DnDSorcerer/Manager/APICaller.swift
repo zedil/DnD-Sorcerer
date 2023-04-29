@@ -10,9 +10,6 @@ import Foundation
 struct Constants {
     static let url = "https://www.dnd5eapi.co/api/classes/sorcerer"
     static let proficiencies = "https://www.dnd5eapi.co/api/proficiencies/"
-    
-    //https://www.dnd5eapi.co/api/proficiencies/daggers
-    
 }
 
 enum APIError: Error {
@@ -38,12 +35,13 @@ class APICaller {
                 completion(.failure(APIError.failed))
             }
         }
-        
         task.resume()
     }
     
-    func getProficiensies(completion: @escaping (Result<[Proficiencies], Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.url)") else { return }
+    func getProficiensies(with query: String, completion: @escaping (Result<[ProficiensiesSub], Error>) -> Void) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
+        guard let url = URL(string: "\(Constants.proficiencies + query)") else { return }
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
@@ -51,13 +49,12 @@ class APICaller {
             }
             
             do {
-                let result = try JSONDecoder().decode(Proficiencies.self, from: data)
+                let result = try JSONDecoder().decode(ProficiensiesSub.self, from: data)
                 completion(.success([result]))
             } catch {
                 completion(.failure(APIError.failed))
             }
         }
-        
         task.resume()
     }
 }

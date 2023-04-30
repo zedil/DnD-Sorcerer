@@ -18,7 +18,6 @@ class ProficiensiesViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
-        layout.minimumInteritemSpacing = 0
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .clear
@@ -26,24 +25,7 @@ class ProficiensiesViewController: UIViewController {
         return collection
     }()
     
-    private var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 16
-        view.clipsToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let topSeperator: UIView = {
-        let view = UIView()
-        view.frame.size.width = 41
-        view.frame.size.height = 4
-        view.backgroundColor = UIColor.darkGray
-        view.layer.cornerRadius = 2.5
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private var proficiencyView = ProficiencyView()
     
     private let closeButtonView: UIView = {
         let view = UIView()
@@ -51,7 +33,6 @@ class ProficiensiesViewController: UIViewController {
         view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-        
     }()
     
     private let closeButton: UIButton = {
@@ -62,7 +43,6 @@ class ProficiensiesViewController: UIViewController {
         return button
     }()
     
-    
     private let imageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
@@ -72,33 +52,10 @@ class ProficiensiesViewController: UIViewController {
         return imgView
     }()
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "nameLabel"
-        label.textColor = UIColor(named: "appDarkest")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let typeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "typeLabel"
-        label.textColor = UIColor(named: "appDarkest")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let classesLabel: UILabel = {
         let label = UILabel()
-        label.text = "classesLabel"
-        label.textColor = UIColor(named: "appDarkest")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let classesNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "classesNameLabel"
+        label.text = "Classes"
+        label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textColor = UIColor(named: "appDarkest")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -113,36 +70,28 @@ class ProficiensiesViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(closeButtonView)
         closeButtonView.addSubview(closeButton)
         
         view.addSubview(imageView)
-        view.addSubview(stackView)
         
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(typeLabel)
-        stackView.addArrangedSubview(classesLabel)
+        view.addSubview(proficiencyView)
+        view.addSubview(classesLabel)
         
         classCollectionView.delegate = self
         classCollectionView.dataSource = self
         view.addSubview(classCollectionView)
         
-        
         configureContent()
         applyConstraints()
         
         fetchData()
-
     }
     
     private func fetchData() {
-        
         APICaller.shared.getProficiensies(with: itemName) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -152,10 +101,9 @@ class ProficiensiesViewController: UIViewController {
                     DispatchQueue.main.async {
                         self?.classCollectionView.reloadData()
                         
-                        self?.nameLabel.text = self?.proficiensies[0].name
-                        self?.typeLabel.text = self?.proficiensies[0].type
+                        self?.proficiencyView.nameLabel.text = self?.proficiensies[0].name
+                        self?.proficiencyView.typeLabel.text = self?.proficiensies[0].type
                     }
-                    print("xxxx: \(results)")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -166,6 +114,9 @@ class ProficiensiesViewController: UIViewController {
     private func configureContent() {
         view.backgroundColor = .systemBackground
         
+        proficiencyView.translatesAutoresizingMaskIntoConstraints = false
+        proficiencyView.backgroundColor = UIColor(named: "appYellow")
+        proficiencyView.layer.cornerRadius = 25
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         closeButtonView.addGestureRecognizer(tap)
@@ -180,7 +131,7 @@ class ProficiensiesViewController: UIViewController {
     private func applyConstraints() {
         
         let closeViewConst = [
-            closeButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            closeButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             closeButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             closeButtonView.widthAnchor.constraint(equalToConstant: 40),
             closeButtonView.heightAnchor.constraint(equalToConstant: 40)
@@ -196,25 +147,31 @@ class ProficiensiesViewController: UIViewController {
         NSLayoutConstraint.activate(closeButtonConst)
         
         let imgViewConst = [
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 100),
             imageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         NSLayoutConstraint.activate(imgViewConst)
         
-        let stackViewConst = [
-            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
-            stackView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        let proficiencyViewConst = [
+            proficiencyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
+            proficiencyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            proficiencyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ]
-        NSLayoutConstraint.activate(stackViewConst)
+        NSLayoutConstraint.activate(proficiencyViewConst)
+        
+        let classesLabelConst = [
+            classesLabel.topAnchor.constraint(equalTo: proficiencyView.bottomAnchor, constant: 50),
+            classesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            classesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ]
+        NSLayoutConstraint.activate(classesLabelConst)
         
         let collectionViewConst = [
-            classCollectionView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 100),
-            classCollectionView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
-            classCollectionView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
+            classCollectionView.topAnchor.constraint(equalTo: classesLabel.bottomAnchor, constant: 20),
+            classCollectionView.leadingAnchor.constraint(equalTo: classesLabel.leadingAnchor, constant: 10),
+            classCollectionView.trailingAnchor.constraint(equalTo: classesLabel.trailingAnchor, constant: -10),
             classCollectionView.heightAnchor.constraint(equalToConstant: 120)
         ]
         NSLayoutConstraint.activate(collectionViewConst)
@@ -238,7 +195,7 @@ extension ProficiensiesViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 105, height: 105)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

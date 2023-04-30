@@ -96,8 +96,8 @@ class HomeViewController: UIViewController {
         let sorcererImgViewConst = [
             sorcererImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             sorcererImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            sorcererImageView.heightAnchor.constraint(equalToConstant: 350),
-            sorcererImageView.widthAnchor.constraint(equalToConstant: 350)
+            sorcererImageView.heightAnchor.constraint(equalToConstant: 400),
+            sorcererImageView.widthAnchor.constraint(equalToConstant: 400)
         ]
         NSLayoutConstraint.activate(sorcererImgViewConst)
         

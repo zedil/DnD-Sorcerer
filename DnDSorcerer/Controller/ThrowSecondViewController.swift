@@ -1,13 +1,13 @@
 //
-//  ThrowsViewController.swift
+//  ThrowSecondViewController.swift
 //  DnDSorcerer
 //
-//  Created by Dilara Şimşek on 29.04.2023.
+//  Created by Dilara Şimşek on 30.04.2023.
 //
 
 import UIKit
 
-class ThrowsViewController: UIViewController {
+class ThrowSecondViewController: UIViewController {
     
     private var ability: [Ability] = [Ability]()
     private var skills: [Generic] = [Generic]()
@@ -21,24 +21,21 @@ class ThrowsViewController: UIViewController {
         return table
     }()
     
-    private let nextButton: UIButton = {
+    private let backButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Next ->", for: .normal)
+        button.setTitle(" <- Back", for: .normal)
         button.setTitleColor(UIColor(named: "appDarkest"), for: .normal)
         button.backgroundColor = UIColor(named: "appSoftBrown")
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureNavigationBar()
-        
         view.addSubview(throwView)
         view.addSubview(skillTableView)
-        view.addSubview(nextButton)
+        view.addSubview(backButton)
         skillTableView.delegate = self
         skillTableView.dataSource = self
         
@@ -48,20 +45,7 @@ class ThrowsViewController: UIViewController {
         applyConstraint()
         fetchData()
         
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
-    
-    private func configureNavigationBar() {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "ring")
-        imageView.contentMode = .scaleToFill
-        imageView.clipsToBounds = true
-        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageView)
-        navigationItem.title = "Sorcerer Saving Throws"
-        navigationController?.navigationBar.tintColor = .systemPink
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
     
     private func applyConstraint() {
@@ -81,23 +65,17 @@ class ThrowsViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(tableViewConst)
         
-        let nextButtonConst = [
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
-            nextButton.heightAnchor.constraint(equalToConstant: 40),
-            nextButton.widthAnchor.constraint(equalToConstant: 100)
+        let backButtonConst = [
+            backButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
+            backButton.heightAnchor.constraint(equalToConstant: 40),
+            backButton.widthAnchor.constraint(equalToConstant: 100)
         ]
-        NSLayoutConstraint.activate(nextButtonConst)
-    }
-    
-    @objc func nextButtonTapped() {
-        let vc = ThrowSecondViewController()
-        vc.modalPresentationStyle = .automatic
-        self.present(vc, animated: false)
+        NSLayoutConstraint.activate(backButtonConst)
     }
     
     private func fetchData() {
-        APICaller.shared.getAbility(with: Abilities.cha.rawValue) { [weak self] result in
+        APICaller.shared.getAbility(with: Abilities.con.rawValue) { [weak self] result in
             switch result {
             case .success(let ability):
                 self?.ability = ability
@@ -115,15 +93,18 @@ class ThrowsViewController: UIViewController {
     private func configureContent() {
         throwView.nameLabel.text = ability[0].full_name
         throwView.descLabel.text = (ability[0].desc?[0] ?? "") + "\n" + (ability[0].desc?[1] ?? "")
+        
     }
+    
+    @objc func backButtonTapped() {
+        print("xcvxcvxv")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+
 }
 
-enum Abilities: String {
-    case con = "con"
-    case cha = "cha"
-}
-
-extension ThrowsViewController: UITableViewDelegate, UITableViewDataSource {
+extension ThrowSecondViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return skills.count
@@ -138,7 +119,6 @@ extension ThrowsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SkillsTableViewCell.identifier, for: indexPath) as? SkillsTableViewCell else {
             return UITableViewCell()
         }
-        
         cell.skillLabel.text = skills[indexPath.row].name
         
         return cell

@@ -125,7 +125,6 @@ class ProficiensiesViewController: UIViewController {
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     

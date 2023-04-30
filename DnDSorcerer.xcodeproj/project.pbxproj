@@ -11,6 +11,7 @@
 		A0503ED229FE685800CD30F2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED129FE685800CD30F2 /* Ability.swift */; };
 		A0503ED429FE978D00CD30F2 /* SaveThrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */; };
 		A0503ED629FE99FF00CD30F2 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED529FE99FF00CD30F2 /* SkillsTableViewCell.swift */; };
+		A0503ED829FEC64500CD30F2 /* ThrowSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED729FEC64500CD30F2 /* ThrowSecondViewController.swift */; };
 		A09D6B5129FD52E700949EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B5029FD52E700949EEC /* AppDelegate.swift */; };
 		A09D6B5329FD52E700949EEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B5229FD52E700949EEC /* SceneDelegate.swift */; };
 		A09D6B5529FD52E700949EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B5429FD52E700949EEC /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		A0503ED129FE685800CD30F2 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveThrowView.swift; sourceTree = "<group>"; };
 		A0503ED529FE99FF00CD30F2 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		A0503ED729FEC64500CD30F2 /* ThrowSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowSecondViewController.swift; sourceTree = "<group>"; };
 		A09D6B4D29FD52E700949EEC /* DnDSorcerer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDSorcerer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09D6B5029FD52E700949EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09D6B5229FD52E700949EEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				A09D6B6A29FD543800949EEC /* SubClassViewController.swift */,
 				A09D6B6C29FD544700949EEC /* ThrowsViewController.swift */,
 				A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */,
+				A0503ED729FEC64500CD30F2 /* ThrowSecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				A09D6B8529FDBD3D00949EEC /* ClassesCollectionViewCell.swift in Sources */,
 				A09D6B7729FD638700949EEC /* Sorcerer.swift in Sources */,
 				A09D6B6729FD541600949EEC /* SpellsViewController.swift in Sources */,
+				A0503ED829FEC64500CD30F2 /* ThrowSecondViewController.swift in Sources */,
 				A09D6B7529FD62FA00949EEC /* APICaller.swift in Sources */,
 				A0503ECF29FE469E00CD30F2 /* ProficiencyView.swift in Sources */,
 				A09D6B6D29FD544700949EEC /* ThrowsViewController.swift in Sources */,

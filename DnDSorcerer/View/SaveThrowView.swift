@@ -59,7 +59,12 @@ class SaveThrowView: UIView {
         ]
         NSLayoutConstraint.activate(descLabelConst)
         
-        self.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        
+        /*
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 10
+        self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner] */
     }
     
 }

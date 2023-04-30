@@ -9,7 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var proficiensies: [Proficiencies] = [Proficiencies]()
+    private var proficiensies: [Generic] = [Generic]()
+    private var ability: [Ability] = [Ability]()
+    
+    private var indexes = [String]()
     
     private let contentView: UIView = {
         let view = UIView()
@@ -62,6 +65,7 @@ class HomeViewController: UIViewController {
         addSubViews()
         configureContents()
         fetchSorcerer()
+        
     }
     
     private func configureNavigationBar() {
@@ -117,10 +121,14 @@ class HomeViewController: UIViewController {
             switch result {
             case .success(let sorcerer):
                 self?.proficiensies = sorcerer[0].proficiencies
+                for i in 0...1 {
+                    if let name = sorcerer[0].saving_throws?[i].index {
+                        self?.indexes.append(name)
+                    }
+                }
                 DispatchQueue.main.async {
                     self?.sorcererProficienciesCollectionView.reloadData()
                 }
-                print(sorcerer)
             case .failure(let error):
                 print(error)
             }
@@ -152,6 +160,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vc.modalPresentationStyle = .overCurrentContext
         vc.itemName = selectedItemName
         self.present(vc, animated: false)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

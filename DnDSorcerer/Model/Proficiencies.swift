@@ -11,7 +11,7 @@ struct ProficiensiesSub: Codable {
     let index: String
     let type: String
     let name: String
-    let classes: [Classes]
+    let classes: [Generic]
 }
 
 struct Classes: Codable {

@@ -11,10 +11,11 @@ struct Sorcerer: Codable {
     let index: String
     let name: String
     let hit_die: Int
-    let proficiencies: [Proficiencies]
+    let proficiencies: [Generic]
+    let saving_throws: [Generic]?
 }
 
-struct Proficiencies: Codable {
+struct Generic: Codable {
     let index: String
     let name: String
     let url: String

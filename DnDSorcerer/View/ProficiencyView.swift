@@ -35,7 +35,7 @@ class ProficiencyView: UIView {
         return label
     }()
     
-    private let imageView: UIImageView = {
+    public let imageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
@@ -76,8 +76,8 @@ class ProficiencyView: UIView {
         let imageViewConst = [
             imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -35),
-            imageView.heightAnchor.constraint(equalToConstant: 60),
-            imageView.widthAnchor.constraint(equalToConstant: 60)
+            imageView.heightAnchor.constraint(equalToConstant: 70),
+            imageView.widthAnchor.constraint(equalToConstant: 70)
         ]
         NSLayoutConstraint.activate(imageViewConst)
         

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A0503ECF29FE469E00CD30F2 /* ProficiencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */; };
+		A0503ED229FE685800CD30F2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED129FE685800CD30F2 /* Ability.swift */; };
+		A0503ED429FE978D00CD30F2 /* SaveThrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */; };
+		A0503ED629FE99FF00CD30F2 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED529FE99FF00CD30F2 /* SkillsTableViewCell.swift */; };
 		A09D6B5129FD52E700949EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B5029FD52E700949EEC /* AppDelegate.swift */; };
 		A09D6B5329FD52E700949EEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B5229FD52E700949EEC /* SceneDelegate.swift */; };
 		A09D6B5529FD52E700949EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B5429FD52E700949EEC /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencyView.swift; sourceTree = "<group>"; };
+		A0503ED129FE685800CD30F2 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
+		A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveThrowView.swift; sourceTree = "<group>"; };
+		A0503ED529FE99FF00CD30F2 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
 		A09D6B4D29FD52E700949EEC /* DnDSorcerer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDSorcerer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09D6B5029FD52E700949EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09D6B5229FD52E700949EEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +72,7 @@
 			children = (
 				A09D6B7829FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift */,
 				A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */,
+				A0503ED529FE99FF00CD30F2 /* SkillsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 			children = (
 				A09D6B7629FD638700949EEC /* Sorcerer.swift */,
 				A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */,
+				A0503ED129FE685800CD30F2 /* Ability.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A0503ED029FE46A500CD30F2 /* Cell */,
+				A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */,
 				A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */,
 			);
 			path = View;
@@ -224,11 +233,14 @@
 				A09D6B7929FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift in Sources */,
 				A09D6B6B29FD543800949EEC /* SubClassViewController.swift in Sources */,
 				A09D6B6F29FD54C000949EEC /* HomeViewController.swift in Sources */,
+				A0503ED229FE685800CD30F2 /* Ability.swift in Sources */,
 				A09D6B5129FD52E700949EEC /* AppDelegate.swift in Sources */,
 				A09D6B5329FD52E700949EEC /* SceneDelegate.swift in Sources */,
 				A09D6B8329FDB00500949EEC /* ProficiensiesViewController.swift in Sources */,
 				A09D6B6929FD542600949EEC /* EquipmentViewController.swift in Sources */,
+				A0503ED429FE978D00CD30F2 /* SaveThrowView.swift in Sources */,
 				A09D6B7D29FD9BA900949EEC /* Proficiencies.swift in Sources */,
+				A0503ED629FE99FF00CD30F2 /* SkillsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

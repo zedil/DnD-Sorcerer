@@ -12,7 +12,7 @@ class ProficiensiesViewController: UIViewController {
     public var itemName: String = ""
     
     private var proficiensies: [ProficiensiesSub] = [ProficiensiesSub]()
-    private var classes: [Classes] = [Classes]()
+    private var classes: [Generic] = [Generic]()
     
     private let classCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -117,6 +117,7 @@ class ProficiensiesViewController: UIViewController {
         proficiencyView.translatesAutoresizingMaskIntoConstraints = false
         proficiencyView.backgroundColor = UIColor(named: "appYellow")
         proficiencyView.layer.cornerRadius = 25
+        proficiencyView.imageView.image = UIImage(named: "dagger")
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         closeButtonView.addGestureRecognizer(tap)

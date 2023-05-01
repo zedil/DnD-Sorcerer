@@ -41,7 +41,6 @@ class SkillDescriptionView: UIView {
         super.init(frame: frame)
         addSubViews()
         applyConstraints()
-        configureContents()
     }
     
     required init?(coder: NSCoder) {

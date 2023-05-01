@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03749DE2A000AA900CD5C96 /* SkillDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03749DD2A000AA900CD5C96 /* SkillDescriptionViewController.swift */; };
+		A03749E02A000AC200CD5C96 /* SkillDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03749DF2A000AC200CD5C96 /* SkillDescriptionView.swift */; };
+		A03749E22A00174F00CD5C96 /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03749E12A00174F00CD5C96 /* Skills.swift */; };
 		A0503ECF29FE469E00CD30F2 /* ProficiencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */; };
 		A0503ED229FE685800CD30F2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED129FE685800CD30F2 /* Ability.swift */; };
 		A0503ED429FE978D00CD30F2 /* SaveThrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A03749DD2A000AA900CD5C96 /* SkillDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDescriptionViewController.swift; sourceTree = "<group>"; };
+		A03749DF2A000AC200CD5C96 /* SkillDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDescriptionView.swift; sourceTree = "<group>"; };
+		A03749E12A00174F00CD5C96 /* Skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
 		A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencyView.swift; sourceTree = "<group>"; };
 		A0503ED129FE685800CD30F2 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveThrowView.swift; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 				A09D6B7629FD638700949EEC /* Sorcerer.swift */,
 				A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */,
 				A0503ED129FE685800CD30F2 /* Ability.swift */,
+				A03749E12A00174F00CD5C96 /* Skills.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 				A0503ED029FE46A500CD30F2 /* Cell */,
 				A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */,
 				A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */,
+				A03749DF2A000AC200CD5C96 /* SkillDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 				A09D6B6C29FD544700949EEC /* ThrowsViewController.swift */,
 				A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */,
 				A0503ED729FEC64500CD30F2 /* ThrowSecondViewController.swift */,
+				A03749DD2A000AA900CD5C96 /* SkillDescriptionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,6 +240,7 @@
 				A09D6B7729FD638700949EEC /* Sorcerer.swift in Sources */,
 				A09D6B6729FD541600949EEC /* SpellsViewController.swift in Sources */,
 				A0503ED829FEC64500CD30F2 /* ThrowSecondViewController.swift in Sources */,
+				A03749DE2A000AA900CD5C96 /* SkillDescriptionViewController.swift in Sources */,
 				A09D6B7529FD62FA00949EEC /* APICaller.swift in Sources */,
 				A0503ECF29FE469E00CD30F2 /* ProficiencyView.swift in Sources */,
 				A09D6B6D29FD544700949EEC /* ThrowsViewController.swift in Sources */,
@@ -243,6 +253,8 @@
 				A09D6B8329FDB00500949EEC /* ProficiensiesViewController.swift in Sources */,
 				A09D6B6929FD542600949EEC /* EquipmentViewController.swift in Sources */,
 				A0503ED429FE978D00CD30F2 /* SaveThrowView.swift in Sources */,
+				A03749E22A00174F00CD5C96 /* Skills.swift in Sources */,
+				A03749E02A000AC200CD5C96 /* SkillDescriptionView.swift in Sources */,
 				A09D6B7D29FD9BA900949EEC /* Proficiencies.swift in Sources */,
 				A0503ED629FE99FF00CD30F2 /* SkillsTableViewCell.swift in Sources */,
 			);

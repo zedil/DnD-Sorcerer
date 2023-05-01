@@ -13,6 +13,10 @@ struct Constants {
     static let proficiencies = "/proficiencies/"
     ///api/ability-scores/con
     static let ability = "/ability-scores/"
+    static let skill = "/skills/"
+    
+    // index    :    deception
+    // url    :    /api/skills/deception
 }
 
 enum APIError: Error {
@@ -72,6 +76,25 @@ class APICaller {
             
             do {
                 let result = try JSONDecoder().decode(Ability.self, from: data)
+                completion(.success([result]))
+            } catch {
+                completion(.failure(APIError.failed))
+            }
+        }
+        task.resume()
+    }
+    
+    func getSkill(with query: String, completion: @escaping (Result<[Skills], Error>) -> Void) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
+        guard let url = URL(string: "\(Constants.baseUrl + Constants.skill + query)") else { return }
+        print("yyyyy: \(url)")
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Skills.self, from: data)
                 completion(.success([result]))
             } catch {
                 completion(.failure(APIError.failed))

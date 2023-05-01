@@ -133,6 +133,14 @@ extension ThrowsViewController: UITableViewDelegate, UITableViewDataSource {
         return 60
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexText = skills[indexPath.row].index
+        let vc = SkillDescriptionViewController()
+        vc.indexText = indexText
+        vc.modalPresentationStyle = .automatic
+        self.present(vc, animated: false)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SkillsTableViewCell.identifier, for: indexPath) as? SkillsTableViewCell else {

@@ -59,7 +59,7 @@ class SaveThrowView: UIView {
         ]
         NSLayoutConstraint.activate(descLabelConst)
         
-        self.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 280).isActive = true
         
         /*
         self.clipsToBounds = true

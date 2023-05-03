@@ -14,6 +14,8 @@ struct Constants {
     ///api/ability-scores/con
     static let ability = "/ability-scores/"
     static let skill = "/skills/"
+    //https://www.dnd5eapi.co/api/classes/sorcerer/spells
+    static let spells = "/spells"
     
     // index    :    deception
     // url    :    /api/skills/deception
@@ -88,13 +90,28 @@ class APICaller {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
         guard let url = URL(string: "\(Constants.baseUrl + Constants.skill + query)") else { return }
-        print("yyyyy: \(url)")
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
             do {
                 let result = try JSONDecoder().decode(Skills.self, from: data)
+                completion(.success([result]))
+            } catch {
+                completion(.failure(APIError.failed))
+            }
+        }
+        task.resume()
+    }
+    
+    func getSpells(completion: @escaping (Result<[Spells], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseUrl + Constants.spells)") else { return }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Spells.self, from: data)
                 completion(.success([result]))
             } catch {
                 completion(.failure(APIError.failed))

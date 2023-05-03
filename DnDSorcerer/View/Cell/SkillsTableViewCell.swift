@@ -29,7 +29,7 @@ class SkillsTableViewCell: UITableViewCell {
     
     private let skillButton: UIButton = {
         let button = UIButton()
-        button.setTitle("X", for: .normal)
+        button.setTitle("O", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

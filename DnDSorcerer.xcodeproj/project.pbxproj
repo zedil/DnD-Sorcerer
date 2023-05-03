@@ -32,6 +32,9 @@
 		A09D6B7D29FD9BA900949EEC /* Proficiencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */; };
 		A09D6B8329FDB00500949EEC /* ProficiensiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */; };
 		A09D6B8529FDBD3D00949EEC /* ClassesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */; };
+		A09DBE892A028AF800F4D317 /* Spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE882A028AF800F4D317 /* Spells.swift */; };
+		A09DBE8B2A028E2800F4D317 /* SpellsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE8A2A028E2800F4D317 /* SpellsTableViewCell.swift */; };
+		A09DBE8D2A029B3400F4D317 /* SpellDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE8C2A029B3400F4D317 /* SpellDescriptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiencies.swift; sourceTree = "<group>"; };
 		A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiensiesViewController.swift; sourceTree = "<group>"; };
 		A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewCell.swift; sourceTree = "<group>"; };
+		A09DBE882A028AF800F4D317 /* Spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spells.swift; sourceTree = "<group>"; };
+		A09DBE8A2A028E2800F4D317 /* SpellsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellsTableViewCell.swift; sourceTree = "<group>"; };
+		A09DBE8C2A029B3400F4D317 /* SpellDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDescriptionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				A09D6B7829FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift */,
 				A09D6B8429FDBD3D00949EEC /* ClassesCollectionViewCell.swift */,
 				A0503ED529FE99FF00CD30F2 /* SkillsTableViewCell.swift */,
+				A09DBE8A2A028E2800F4D317 /* SpellsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 				A09D6B7C29FD9BA900949EEC /* Proficiencies.swift */,
 				A0503ED129FE685800CD30F2 /* Ability.swift */,
 				A03749E12A00174F00CD5C96 /* Skills.swift */,
+				A09DBE882A028AF800F4D317 /* Spells.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 				A09D6B8229FDB00500949EEC /* ProficiensiesViewController.swift */,
 				A0503ED729FEC64500CD30F2 /* ThrowSecondViewController.swift */,
 				A03749DD2A000AA900CD5C96 /* SkillDescriptionViewController.swift */,
+				A09DBE8C2A029B3400F4D317 /* SpellDescriptionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -246,12 +255,15 @@
 				A09D6B6D29FD544700949EEC /* ThrowsViewController.swift in Sources */,
 				A09D6B7929FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift in Sources */,
 				A09D6B6B29FD543800949EEC /* SubClassViewController.swift in Sources */,
+				A09DBE8D2A029B3400F4D317 /* SpellDescriptionViewController.swift in Sources */,
 				A09D6B6F29FD54C000949EEC /* HomeViewController.swift in Sources */,
+				A09DBE8B2A028E2800F4D317 /* SpellsTableViewCell.swift in Sources */,
 				A0503ED229FE685800CD30F2 /* Ability.swift in Sources */,
 				A09D6B5129FD52E700949EEC /* AppDelegate.swift in Sources */,
 				A09D6B5329FD52E700949EEC /* SceneDelegate.swift in Sources */,
 				A09D6B8329FDB00500949EEC /* ProficiensiesViewController.swift in Sources */,
 				A09D6B6929FD542600949EEC /* EquipmentViewController.swift in Sources */,
+				A09DBE892A028AF800F4D317 /* Spells.swift in Sources */,
 				A0503ED429FE978D00CD30F2 /* SaveThrowView.swift in Sources */,
 				A03749E22A00174F00CD5C96 /* Skills.swift in Sources */,
 				A03749E02A000AC200CD5C96 /* SkillDescriptionView.swift in Sources */,

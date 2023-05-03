@@ -14,7 +14,8 @@ struct Constants {
     ///api/ability-scores/con
     static let ability = "/ability-scores/"
     static let skill = "/skills/"
-    //https://www.dnd5eapi.co/api/classes/sorcerer/spells
+    //https://www.dnd5eapi.co/api/spells/acid-splash
+    ///https://www.dnd5eapi.co/api/classes/sorcerer/spells
     static let spells = "/spells"
     
     // index    :    deception
@@ -105,13 +106,32 @@ class APICaller {
     }
     
     func getSpells(completion: @escaping (Result<[Spells], Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.baseUrl + Constants.spells)") else { return }
+        guard let url = URL(string: "\(Constants.baseUrl + Constants.url + Constants.spells)") else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
             do {
                 let result = try JSONDecoder().decode(Spells.self, from: data)
+                completion(.success([result]))
+            } catch {
+                completion(.failure(APIError.failed))
+            }
+        }
+        task.resume()
+    }
+    
+    func getSkillDesc(with query: String, completion: @escaping (Result<[SpellDescription], Error>) -> Void) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
+        guard let url = URL(string: "\(Constants.baseUrl + Constants.spells + "/" + query)") else { return }
+        print("xxx: \(url)")
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(SpellDescription.self, from: data)
                 completion(.success([result]))
             } catch {
                 completion(.failure(APIError.failed))

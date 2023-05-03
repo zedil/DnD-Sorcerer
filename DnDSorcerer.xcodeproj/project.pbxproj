@@ -35,6 +35,8 @@
 		A09DBE892A028AF800F4D317 /* Spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE882A028AF800F4D317 /* Spells.swift */; };
 		A09DBE8B2A028E2800F4D317 /* SpellsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE8A2A028E2800F4D317 /* SpellsTableViewCell.swift */; };
 		A09DBE8D2A029B3400F4D317 /* SpellDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE8C2A029B3400F4D317 /* SpellDescriptionViewController.swift */; };
+		A09DBE8F2A02A49500F4D317 /* SpellDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE8E2A02A49500F4D317 /* SpellDescriptionView.swift */; };
+		A09DBE912A02A98400F4D317 /* SpellDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DBE902A02A98400F4D317 /* SpellDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		A09DBE882A028AF800F4D317 /* Spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spells.swift; sourceTree = "<group>"; };
 		A09DBE8A2A028E2800F4D317 /* SpellsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellsTableViewCell.swift; sourceTree = "<group>"; };
 		A09DBE8C2A029B3400F4D317 /* SpellDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDescriptionViewController.swift; sourceTree = "<group>"; };
+		A09DBE8E2A02A49500F4D317 /* SpellDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDescriptionView.swift; sourceTree = "<group>"; };
+		A09DBE902A02A98400F4D317 /* SpellDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				A0503ED129FE685800CD30F2 /* Ability.swift */,
 				A03749E12A00174F00CD5C96 /* Skills.swift */,
 				A09DBE882A028AF800F4D317 /* Spells.swift */,
+				A09DBE902A02A98400F4D317 /* SpellDescription.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				A0503ED329FE978D00CD30F2 /* SaveThrowView.swift */,
 				A0503ECE29FE469E00CD30F2 /* ProficiencyView.swift */,
 				A03749DF2A000AC200CD5C96 /* SkillDescriptionView.swift */,
+				A09DBE8E2A02A49500F4D317 /* SpellDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,11 +256,13 @@
 				A09D6B6729FD541600949EEC /* SpellsViewController.swift in Sources */,
 				A0503ED829FEC64500CD30F2 /* ThrowSecondViewController.swift in Sources */,
 				A03749DE2A000AA900CD5C96 /* SkillDescriptionViewController.swift in Sources */,
+				A09DBE8F2A02A49500F4D317 /* SpellDescriptionView.swift in Sources */,
 				A09D6B7529FD62FA00949EEC /* APICaller.swift in Sources */,
 				A0503ECF29FE469E00CD30F2 /* ProficiencyView.swift in Sources */,
 				A09D6B6D29FD544700949EEC /* ThrowsViewController.swift in Sources */,
 				A09D6B7929FD6D0800949EEC /* ProficiensiesCollectionViewCell.swift in Sources */,
 				A09D6B6B29FD543800949EEC /* SubClassViewController.swift in Sources */,
+				A09DBE912A02A98400F4D317 /* SpellDescription.swift in Sources */,
 				A09DBE8D2A029B3400F4D317 /* SpellDescriptionViewController.swift in Sources */,
 				A09D6B6F29FD54C000949EEC /* HomeViewController.swift in Sources */,
 				A09DBE8B2A028E2800F4D317 /* SpellsTableViewCell.swift in Sources */,

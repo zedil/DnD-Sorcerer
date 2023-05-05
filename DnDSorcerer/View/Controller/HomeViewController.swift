@@ -9,10 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var proficiensies: [Generic] = [Generic]()
-    private var ability: [Ability] = [Ability]()
-    
-    private var indexes = [String]()
+    private var homeViewModel = HomeViewModel()
     
     private let contentView: UIView = {
         let view = UIView()
@@ -58,14 +55,30 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        
-        sorcererProficienciesCollectionView.delegate = self
-        sorcererProficienciesCollectionView.dataSource = self
+        setDelegates()
         
         addSubViews()
         configureContents()
-        fetchSorcerer()
+        initViewModel()
+        getData()
         
+    }
+    
+    private func setDelegates() {
+        sorcererProficienciesCollectionView.delegate = self
+        sorcererProficienciesCollectionView.dataSource = self
+    }
+    
+    private func initViewModel() {
+        homeViewModel.reloadCollectionView = {
+            DispatchQueue.main.async {
+                self.sorcererProficienciesCollectionView.reloadData()
+            }
+        }
+    }
+    
+    private func getData() {
+        homeViewModel.fetchSorcerer()
     }
     
     private func configureNavigationBar() {
@@ -112,34 +125,13 @@ class HomeViewController: UIViewController {
             sorcererProficienciesCollectionView.heightAnchor.constraint(equalToConstant: 200)
         ]
         NSLayoutConstraint.activate(sorcererProficienciesCollectionViewConst)
-        
-        
-    }
-    
-    private func fetchSorcerer() {
-        APICaller.shared.getSorcererBasicInfo { [weak self] result in
-            switch result {
-            case .success(let sorcerer):
-                self?.proficiensies = sorcerer[0].proficiencies
-                for i in 0...1 {
-                    if let name = sorcerer[0].saving_throws?[i].index {
-                        self?.indexes.append(name)
-                    }
-                }
-                DispatchQueue.main.async {
-                    self?.sorcererProficienciesCollectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return proficiensies.count
+        return homeViewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -147,20 +139,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         
-        let title = proficiensies[indexPath.row].name
-        cell.proficiencyName.text = title
+        let cellItem = homeViewModel.cellItemAt(indexPath: indexPath)
+        cell.proficiencyName.text = cellItem.titleText
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItemName = proficiensies[indexPath.row].index
+        let selectedItemName = homeViewModel.didSelectItemAt(indexPath: indexPath).indexText
         
         let vc = ProficiensiesViewController()
         vc.modalPresentationStyle = .overCurrentContext
         vc.itemName = selectedItemName
         self.present(vc, animated: false)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

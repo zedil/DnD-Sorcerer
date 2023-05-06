@@ -56,12 +56,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         setDelegates()
-        
         addSubViews()
         configureContents()
         initViewModel()
         getData()
-        
     }
     
     private func setDelegates() {

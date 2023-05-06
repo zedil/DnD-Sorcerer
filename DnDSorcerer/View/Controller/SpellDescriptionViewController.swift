@@ -15,30 +15,69 @@ class SpellDescriptionViewController: UIViewController {
     private var spellCount: Int?
     
     private let spellDesc = SpellDescriptionView()
+    
+    private var titleDesc: UILabel = {
+        let title = UILabel()
+        title.text = "titleLabel"
+        title.textColor = UIColor(named: "appDarkest")
+        title.font = UIFont.boldSystemFont(ofSize: 30)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
+    }()
+    
+    private var imageViewDesc: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "potion")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
-        
         addSubViews()
         applyConstraint()
+        configureContent()
         fetchData()
     }
     
     private func addSubViews() {
+        view.addSubview(titleDesc)
+        view.addSubview(imageViewDesc)
         view.addSubview(spellDesc)
         spellDesc.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func applyConstraint() {
+        let titleConst = [
+            titleDesc.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            titleDesc.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleDesc.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            
+        ]
+        NSLayoutConstraint.activate(titleConst)
+        
+        let imageCons = [
+            imageViewDesc.topAnchor.constraint(equalTo: titleDesc.bottomAnchor, constant: 20),
+            imageViewDesc.centerXAnchor.constraint(equalTo: titleDesc.centerXAnchor),
+            imageViewDesc.heightAnchor.constraint(equalToConstant: 100),
+            imageViewDesc.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        NSLayoutConstraint.activate(imageCons)
+        
+        
         let spellDescCons = [
-            spellDesc.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 30),
+            spellDesc.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 40),
             spellDesc.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             spellDesc.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            spellDesc.heightAnchor.constraint(equalToConstant: 450)
+            spellDesc.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.height / 2))
         ]
         NSLayoutConstraint.activate(spellDescCons)
+    }
+    
+    private func configureContent() {
+        titleDesc.text = spellIndex.uppercased().replacingOccurrences(of: "-", with: " ")
+        titleDesc.textAlignment = .center
     }
     
     private func fetchData() {

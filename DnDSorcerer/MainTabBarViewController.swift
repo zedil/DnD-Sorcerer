@@ -16,7 +16,7 @@ class MainTabBarViewController: UITabBarController {
         
         let vc0 = UINavigationController(rootViewController: HomeViewController())
         let vc1 = UINavigationController(rootViewController: SpellsViewController())
-        let vc2 = UINavigationController(rootViewController: EquipmentViewController())
+        let vc2 = UINavigationController(rootViewController: LevelsViewController())
         let vc3 = UINavigationController(rootViewController: SubClassViewController())
         let vc4 = UINavigationController(rootViewController: ThrowsViewController())
         
@@ -28,7 +28,7 @@ class MainTabBarViewController: UITabBarController {
         
         vc0.title = "Sorcerer"
         vc1.title = "Spells"
-        vc2.title = "Equipments"
+        vc2.title = "Levels"
         vc3.title = "Sub Classes"
         vc4.title = "Throws"
         

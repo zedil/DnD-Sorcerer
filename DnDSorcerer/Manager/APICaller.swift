@@ -17,6 +17,10 @@ struct Constants {
     //https://www.dnd5eapi.co/api/spells/acid-splash
     ///https://www.dnd5eapi.co/api/classes/sorcerer/spells
     static let spells = "/spells"
+    ///https://www.dnd5eapi.co/api/features/flexible-casting-creating-spell-slots
+    ////api/classes/sorcerer/levels/ -> levels
+
+    static let levels = "/levels/"
     
     // index    :    deception
     // url    :    /api/skills/deception
@@ -125,13 +129,30 @@ class APICaller {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
         guard let url = URL(string: "\(Constants.baseUrl + Constants.spells + "/" + query)") else { return }
-        print("xxx: \(url)")
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
             do {
                 let result = try JSONDecoder().decode(SpellDescription.self, from: data)
+                completion(.success([result]))
+            } catch {
+                completion(.failure(APIError.failed))
+            }
+        }
+        task.resume()
+    }
+    
+    func getLevels(with query: String, completion: @escaping (Result<[Levels], Error>) -> Void) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
+        guard let url = URL(string: "\(Constants.baseUrl + Constants.url + Constants.levels + query)") else { return }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Levels.self, from: data)
                 completion(.success([result]))
             } catch {
                 completion(.failure(APIError.failed))

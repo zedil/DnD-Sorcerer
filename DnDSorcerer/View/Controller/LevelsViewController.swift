@@ -9,6 +9,8 @@ import UIKit
 
 class LevelsViewController: UIViewController {
     
+    private var levelsViewModel = LevelsViewModel()
+    
     var spellIndex = "1"
     
     var textvalue = TextValueView()
@@ -33,12 +35,21 @@ class LevelsViewController: UIViewController {
         configureNavigationBar()
         setDelegates()
         addSubViews()
+        
+        getData()
+        initViewModel()
+        configureContent()
+        configureTapGesture()
+        
+        subscribeViewModel()
+        
+        
     }
     
     private func addSubViews() {
         view.addSubview(levelView)
         let levelViewConst = [
-            levelView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            levelView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
             levelView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             levelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             levelView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -76,16 +87,42 @@ class LevelsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .systemPink
     }
     
-    private func fetchData() {
-        APICaller.shared.getLevels(with: spellIndex) { [weak self] result in
-            switch result {
-            case .success(let spell):
-                print("xxxx: \(spell)")
-                
-            case .failure(let error):
-                print(error.localizedDescription)
+    private func initViewModel() {
+        levelsViewModel.reloadCollectionView = {
+            DispatchQueue.main.async {
+                self.levelFeatureCollectionView.reloadData()
             }
         }
+    }
+    
+    private func subscribeViewModel() {
+        levelsViewModel.getDataDidSuccess = { [weak self] in
+            guard let self = self else { return }
+            print("xxxxx: \(self.levelsViewModel.profBonus)")
+            print("xxxxx: \(self.levelsViewModel.abilitScore)")
+            print("xxxxx: \(self.levelsViewModel.metamagicKnown)")
+            print("xxxxx: \(self.levelsViewModel.sorceryPoints)")
+            print("xxxxx: \(self.levelsViewModel.spellsKnown)")
+            print("xxxxx: \(self.levelsViewModel.cantripsKnown)")
+        }
+    }
+    
+    private func getData() {
+        levelsViewModel.fetchLevels()
+    }
+    
+    private func configureContent() {
+        levelView.levelTitle.text = "Level " + spellIndex + " ->"
+        
+    }
+    
+    private func configureTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        levelView.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        print("clickeddd")
     }
     
 }
@@ -94,12 +131,15 @@ class LevelsViewController: UIViewController {
 extension LevelsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return levelsViewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LevelFeatureCollectionViewCell.identifier, for: indexPath) as? LevelFeatureCollectionViewCell else {
             return UICollectionViewCell() }
+        
+        let cellItem = levelsViewModel.cellItemAt(indexPath: indexPath)
+        cell.levelLabel.text = cellItem.titleText
         
         return cell
     }

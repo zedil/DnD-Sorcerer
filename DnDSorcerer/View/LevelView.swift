@@ -23,7 +23,8 @@ class LevelView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "levelll"
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.textColor = UIColor(named: "appDarkest")
         label.numberOfLines = 0
         return label
     }()
@@ -96,15 +97,15 @@ class LevelView: UIView {
         
         let levelTitleViewConst = [
             levelTitleView.topAnchor.constraint(equalTo: self.topAnchor, constant: -25),
-            levelTitleView.widthAnchor.constraint(equalToConstant: 120),
+            levelTitleView.widthAnchor.constraint(equalToConstant: 150),
             levelTitleView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            levelTitleView.heightAnchor.constraint(equalToConstant: 60)
+            levelTitleView.heightAnchor.constraint(equalToConstant: 80)
         ]
         NSLayoutConstraint.activate(levelTitleViewConst)
         
         let levelTitleConst = [
             levelTitle.centerXAnchor.constraint(equalTo: levelTitleView.centerXAnchor),
-            levelTitle.centerYAnchor.constraint(equalTo: levelTitleView.centerYAnchor)
+            levelTitle.topAnchor.constraint(equalTo: levelTitleView.topAnchor, constant: 15)
         ]
         NSLayoutConstraint.activate(levelTitleConst)
         
@@ -121,7 +122,9 @@ class LevelView: UIView {
     
     private func configureContent() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .red
+        backgroundColor = UIColor(named: "appLightGray")
+        layer.cornerRadius = 25
+        
     }
     
     

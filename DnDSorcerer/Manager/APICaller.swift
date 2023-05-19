@@ -19,6 +19,10 @@ struct Constants {
     static let spells = "/spells"
     ///https://www.dnd5eapi.co/api/features/flexible-casting-creating-spell-slots
     ////api/classes/sorcerer/levels/ -> levels
+    ///
+    ///
+    ///https://www.dnd5eapi.co/api/features/flexible-casting-creating-spell-slots
+    ///https://www.dnd5eapi.co/api/classes/sorcerer/levels/1
 
     static let levels = "/levels/"
     

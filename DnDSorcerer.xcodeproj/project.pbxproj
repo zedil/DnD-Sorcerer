@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02AD6242A17BF2B0025EAC2 /* LevelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02AD6232A17BF2B0025EAC2 /* LevelsViewModel.swift */; };
 		A03749DE2A000AA900CD5C96 /* SkillDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03749DD2A000AA900CD5C96 /* SkillDescriptionViewController.swift */; };
 		A03749E02A000AC200CD5C96 /* SkillDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03749DF2A000AC200CD5C96 /* SkillDescriptionView.swift */; };
 		A03749E22A00174F00CD5C96 /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03749E12A00174F00CD5C96 /* Skills.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A02AD6232A17BF2B0025EAC2 /* LevelsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewModel.swift; sourceTree = "<group>"; };
 		A03749DD2A000AA900CD5C96 /* SkillDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDescriptionViewController.swift; sourceTree = "<group>"; };
 		A03749DF2A000AC200CD5C96 /* SkillDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDescriptionView.swift; sourceTree = "<group>"; };
 		A03749E12A00174F00CD5C96 /* Skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				A08AA95C2A04E28B0096887E /* HomeViewModel.swift */,
 				A062E1F42A07088700D09B7D /* SpellsViewModel.swift */,
+				A02AD6232A17BF2B0025EAC2 /* LevelsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				A03DC7622A0BE47500770C26 /* LevelFeatureCollectionViewCell.swift in Sources */,
 				A0503ED829FEC64500CD30F2 /* ThrowSecondViewController.swift in Sources */,
 				A03749DE2A000AA900CD5C96 /* SkillDescriptionViewController.swift in Sources */,
+				A02AD6242A17BF2B0025EAC2 /* LevelsViewModel.swift in Sources */,
 				A09DBE8F2A02A49500F4D317 /* SpellDescriptionView.swift in Sources */,
 				A09D6B7529FD62FA00949EEC /* APICaller.swift in Sources */,
 				A03DC75C2A0BBCEC00770C26 /* Levels.swift in Sources */,
